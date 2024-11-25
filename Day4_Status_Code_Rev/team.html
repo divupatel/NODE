@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Meet Our Team</title>
+        <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        .team-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .team-member {
+            flex: 1 1 calc(33.333% - 20px);
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .team-member img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 15px;
+        }
+
+        .team-member h3 {
+            margin: 10px 0;
+            color: #333;
+        }
+
+        .team-member p {
+            color: #555;
+        }
+
+        @media (max-width: 768px) {
+            .team-member {
+                flex: 1 1 calc(50% - 20px);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .team-member {
+                flex: 1 1 100%;
+            }
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            background-color: #333;
+            color: white;
+            margin-top: 20px;
+        }
+    </style>
+    </head>
+    <body>
+
+        <!-- Header Section -->
+        <header
+            style="background: #4CAF50; color: white; padding: 20px; text-align: center;">
+            <nav style="display: flex; justify-content: center; gap: 15px;">
+                <a href="/"
+                    style="color: white; text-decoration: none; font-weight: bold;">Home</a>
+                <a href="/about"
+                    style="color: white; text-decoration: none; font-weight: bold;">About</a>
+                <a href="/team"
+                    style="color: white; text-decoration: none; font-weight: bold;">Team</a>
+                <a href="/contact"
+                    style="color: white; text-decoration: none; font-weight: bold;">Contact</a>
+            </nav>
+        </header>
+
+        <h1>Meet Our Team</h1>
+        <!-- Main Content Section -->
+        <main>
+            <h2>The People Behind Our Success</h2>
+            <div class="team-container">
+                <!-- Team Member 1 -->
+                <div class="team-member">
+                    <img src="https://thumbs.dreamstime.com/b/portrait-serious-young-business-woman-wearing-white-shirt-looking-to-you-camera-isolated-background-one-single-person-neutral-178602244.jpg"
+                        alt="Team Member Photo">
+                    <h3>Divya Vaddoriya</h3>
+                    <p>Web Designer</p>
+                    <p>An enthusiastic web designer with over 5 years of
+                        experience in creating stunning visual designs and
+                        user-friendly websites.</p>
+                </div>
+                <!-- Team Member 2 -->
+                <div class="team-member">
+                    <img src="https://t3.ftcdn.net/jpg/06/49/71/98/360_F_649719870_0KjDq1hvvnto0WfYg08Lo1os3L1OLEUW.jpg"
+                        alt="Team Member Photo">
+                    <h3>John Doe</h3>
+                    <p>Frontend Developer</p>
+                    <p>A creative problem solver with expertise in modern
+                        frontend technologies and responsive design.</p>
+                </div>
+                <!-- Team Member 3 -->
+                <div class="team-member">
+                    <img src="https://media.istockphoto.com/id/1386479313/photo/happy-millennial-afro-american-business-woman-posing-isolated-on-white.jpg?s=612x612&w=0&k=20&c=8ssXDNTp1XAPan8Bg6mJRwG7EXHshFO5o0v9SIj96nY="
+                        alt="Team Member Photo">
+                    <h3>Jane Smith</h3>
+                    <p>Project Manager</p>
+                    <p>Ensures seamless project delivery with exceptional
+                        organizational and leadership skills.</p>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer Section -->
+        <footer>
+            <p>&copy; 2024 Studio Shodwe. All rights reserved.</p>
+        </footer>
+
+    </body>
+</html>
