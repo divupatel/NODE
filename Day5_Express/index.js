@@ -23,6 +23,10 @@ app.get('/team',(req,res)=>{
     res.render('team');
 })
 
+app.get('*',(req,res)=>{
+    res.render('404');
+})
+
 app.listen(port,(err)=>{
     if(err){
         console.log("Something went wrong",err);
