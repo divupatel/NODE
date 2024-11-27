@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Home Page</title>
+        <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+        }
+        h2 {
+            color: #666;
+            margin: 10px;
+        }
+        p {
+            color: #d22626;
+        }
+        a {
+            text-decoration: none;
+            color: #000;
+        }
+       
+    </style>
+    </head>
+    <body>
+        <h1 style="text-align: center;margin: 10px;">Home page</h1>
+
+        <br>
+        <hr>
+        <hr>
+        <br>
+
+        <h2><%= title %></h2>
+        <br>
+        <p><%= data %></p>
+        <br>
+        <h3>get data in form of object : </h3>
+        <p>Student's Name : <%= student.name %></p>
+        <p>Student's Age : <%= student.age %></p>
+        <br><br>
+        <h3>get data in form of array : </h3>
+        <ul>
+            <% array.map((item) => { %>
+            <div style="background-color: #333;color: #f8f9fa; padding: 10px;margin: 20px; width: 20%;">
+                <li>Name : <%= item.name %></li>
+                <li>Age : <%= item.age %></li>
+            </div>
+            <% }) %>
+        </ul>
+
+        <br>
+        <hr>
+        <hr>
+        <br>
+
+        <p>Loop : 1 to 10</p>
+
+        <ul>
+            <% for(let i=0; i<=10 ; i++) { %>
+            <li><%= i %></li>
+            <% } %>
+        </ul>
+
+        <br>
+        <hr>
+        <hr>
+        <br>
+
+        <% var age = 20; if(age>=18){ %>
+        <p>You are an adult at age <%= age %></p>
+        <% } else { %>
+        <p>You are a child at age <%= age %></p>
+        <% } %>
+
+        <br>
+        <hr>
+        <hr>
+        <br>
+
+    </body>
+</html>
