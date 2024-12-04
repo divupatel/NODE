@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f0f0; /* Light pink background */
+            color: #333;
+            text-align: center;
+        }
+
+        h1 {
+            color: #ff66b2; /* Pink color for the title */
+        }
+
+        h2 {
+            color: #ff66b2; /* Pink color for the subheadings */
+        }
+
+        table {
+            width: 60%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 10px;
+            border: 1px solid #ff66b2; /* Pink border */
+        }
+
+        input[type="text"] {
+            padding: 8px;
+            width: 200px;
+            border-radius: 4px;
+            border: 1px solid #ff66b2;
+        }
+
+        input[type="submit"] {
+            padding: 8px 16px;
+            background-color: #ff66b2;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #ff3385; /* Darker pink on hover */
+        }
+
+        .completed {
+            background-color: #ffe6f2; /* Light pink background for completed tasks */
+            text-decoration: line-through; /* Strike-through for completed tasks */
+            color: #999; /* Light grey color to show it's completed */
+        }
+
+        .actions {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .actions a {
+            color: #ff66b2;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .actions a:hover {
+            color: #ff3385; /* Darker pink for hover */
+        }
+
+        .actions a.disabled {
+            color: #ddd; /* Disabled state for completed tasks */
+            pointer-events: none; /* Disable clicking on the link */
+        }
+
+        .task {
+            color: #ff66b2; /* Pink color for task text */
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Task Manager</h1>
+
+    <!-- Form to add a new task -->
+    <form method="post" action="/insertData">
+        <table>
+            <tr>
+                <td>
+                    <input type="text" name="task" placeholder="Enter your Task" />
+                    <input type="submit" value="Add Task" />
+                </td>
+            </tr>
+        </table>
+    </form>
+
+    <!-- Display pending tasks -->
+    <h2>Pending Tasks</h2>
+    <table>
+        <tr>
+            <th>Task</th>
+            <th>Actions</th>
+        </tr>
+        <% newTask.map((item, i) => { %>
+            <tr class="<%= completedTasks.includes(item) ? 'completed' : '' %>">
+                <td class="task"><%= item %></td>
+                <% if (!completedTasks.includes(item)) { %>
+                    <td class="actions">
+                        <a href='/completedTask/?pos=<%= i %>'>✔</a> || 
+                        <a href='/deleteTask/?pos=<%= i %>'>Delete</a>
+                    </td>
+                <% } else { %>
+                    <td class="actions">
+                        <a href="#" class="disabled">✔</a> || 
+                        <a href="#" class="disabled">Delete</a>
+                    </td>
+                <% } %>
+            </tr>
+        <% }) %>
+    </table>
+
+    <!-- Display completed tasks -->
+    <h2>Completed Tasks</h2>
+    <table>
+        <tr>
+            <th>Task</th>
+        </tr>
+        <% completedTasks.map((v, i) => { %>
+            <tr class="completed">
+                <td class="task"><%= v %></td>
+            </tr>
+        <% }) %>
+    </table>
+</body>
+</html>

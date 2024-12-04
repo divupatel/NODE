@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7fc;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        h1 {
+            text-align: center;
+            color: #9932cc;
+            margin-bottom: 20px;
+        }
+
+        form {
+            background-color: #ffffff;
+            border: 1px solid #9932cc;
+            border-radius: 8px;
+            width: 400px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 15px;
+            color: #9932cc;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #9932cc;
+            border-radius: 5px;
+            font-size: 14px;
+            color: #333;
+            box-sizing: border-box;
+        }
+
+        input[type="radio"],
+        input[type="checkbox"] {
+            margin-right: 5px;
+            cursor: pointer;
+        }
+
+        textarea {
+            height: 80px;
+        }
+
+        div {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        select {
+            cursor: pointer;
+        }
+
+        button {
+            width: 100%;
+            background-color: #9932cc;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 15px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background-color: #7a27a6;
+        }
+
+        form label:last-child {
+            margin-bottom: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Student Edit/Update Form</h1>
+    <form action="/updateData" method="post"> 
+
+        <input type="hidden" value="<%= position %>" name="position">
+
+        <label>First Name: <input type="text" value="<%= eData.first_name %>" name="first_name" placeholder="Enter name"></label>
+        <label>Last Name: <input type="text" value="<%= eData.last_name %>" name="last_name" placeholder="Enter name"></label>
+        <label>Email: <input type="text" value="<%= eData.email %>" name="email" placeholder="Enter email"></label>
+        <label>Age: <input type="number" value="<%= eData.age %>" name="age" placeholder="Enter age"></label>
+        <label>Gender:
+            <input type="radio" name="gender" value="Male" 
+                <% if(eData.gender == 'Male'){ %> <%= 'checked' %> <% } %>> Male
+            <input type="radio" name="gender" value="Female" 
+                <% if(eData.gender == 'Female'){ %> <%= 'checked' %> <% } %>> Female
+        </label>
+        <label>Hobby:
+            <div>
+                <input type="checkbox" name="hobby" value="Reading" 
+                    <% if(eData.hobby.includes('Reading')) { %> <%= 'checked' %> <%}%>> Reading
+                <input type="checkbox" name="hobby" value="Travelling"> Travelling
+                <input type="checkbox" name="hobby" value="Movie"> Movie
+            </div>
+        </label>
+        <% var cityName = ['Surat', 'Rajkot', 'Ahmedabad', 'Baroda', 'Mumbai']; %>
+        <label>City:
+            <select name="city">
+                <option value="">-- Select City --</option>
+                <% cityName.map((item) => { %>
+                    <option value="<%= item %>" <% if(eData.city == item){ %> selected <% } %>> <%= item %></option>
+                <% }); %>
+            </select>
+        </label>
+        <label>About:
+            <textarea name="about"><%= eData.about %></textarea>
+        </label>
+        <button type="submit" value="Update">Update Student</button>
+    </form> 
+
+</body>
+</html>
