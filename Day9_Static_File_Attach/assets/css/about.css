@@ -1,0 +1,80 @@
+/* styles.css */
+
+/* Apply styles to the body and include a background image */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-image: url('background.jpg'); /* Replace 'background.jpg' with the path to your image */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: #fff;
+    text-align: center;
+}
+
+/* Header styling */
+header {
+    text-align: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    width: 100%;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+header h1 {
+    margin-bottom: 10px;
+    font-size: 2rem;
+}
+
+header p {
+    margin: 5px 0;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    padding: 5px 10px;
+    transition: background 0.3s, color 0.3s;
+}
+
+nav ul li a:hover {
+    background-color: pink;
+    color: black;
+    border-radius: 5px;
+}
+
+
+/* Container styles for the about page */
+.about-container {
+    background: rgba(0, 0, 0, 0.6); /* Dark transparent background for readability */
+    padding: 50px;
+    margin: 100px auto;
+    max-width: 600px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Styling the heading */
+.about-container h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+/* Styling the paragraph text */
+.about-container p {
+    font-size: 1.2em;
+    line-height: 1.6;
+}

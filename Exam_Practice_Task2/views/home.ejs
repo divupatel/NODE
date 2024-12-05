@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>To-Do List</title>
+        <style>
+            body{
+                background-color: rgba(0, 0, 0, 0.806);
+            }
+            form {
+                background-color: #f0f0f0;
+                padding: 20px;
+                border-radius: 10px;
+                width: 35%;
+                margin: 20px auto;
+                color: #4A4A4A;
+                font-family: Arial, sans-serif;
+                box-shadow: rgba(219, 215, 215, 0.12) 0px 2px 3px, rgba(207, 203, 203, 0.24) 0px 2px 3px;
+            }
+
+            form table {
+                width: 100%;
+            }
+
+            form td {
+                padding: 10px 20px 10px 5px;
+            }
+
+            form input[type="text"],
+            form input[type="date"] {
+                width: 100%;
+                padding: 8px;
+                border-radius: 5px;
+                border: 1px solid #4A4A4A;
+                margin-top: 5px;
+            }
+
+            form input[type="checkbox"] {
+                margin-right: 5px;
+            }
+
+            form input[type="submit"] {
+                background-color: #ffffff;
+                color: #407088;
+                border: none;
+                padding: 10px 20px;
+                border-radius: 5px;
+                cursor: pointer;
+                font-weight: bold;
+            }
+
+            form input[type="submit"]:hover {
+                background-color: #e0e0e0;
+            }
+
+            form input[type="text"]::placeholder {
+                color: #9e9797;
+            }
+
+            .allTask {
+                display: flex;
+                gap: 20px;
+                justify-content: center;
+                margin: 20px auto;
+                font-family: Arial, sans-serif;
+                max-width: 900px;
+            }
+
+            .taskBox {
+                background-color: #f0f0f0; /* Light grey background */
+                border: 1px solid #ccc; /* Border for better definition */
+                border-radius: 10px;
+                padding: 15px;
+                width: 30%;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            }
+
+            .taskBox ul {
+                list-style-type: none;
+                padding: 0;
+                margin: 0;
+            }
+
+            .taskBox h3 {
+                text-align: center;
+                font-size: 1.5rem;
+                color: #4a4a4a; /* Dark grey for the heading */
+                margin-bottom: 15px;
+            }
+
+            .taskBox li {
+                background-color: #ffffff; /* White background for tasks */
+                border: 1px solid #ddd;
+                border-radius: 5px;
+                padding: 10px;
+                margin-bottom: 10px;
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+                color: #4a4a4a; /* Dark grey text */
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            }
+
+            .taskBox li p {
+                margin: 0;
+                font-size: 1rem;
+            }
+
+            .taskBox li span {
+                font-size: 0.9rem;
+                color: #7a7a7a; /* Lighter grey for date */
+            }
+
+            .taskBox li a {
+                align-self: flex-end;
+                color: #ff6b6b; /* Soft red for delete action */
+                text-decoration: none;
+                font-weight: bold;
+                border: 1px solid #ff6b6b;
+                padding: 5px 10px;
+                border-radius: 5px;
+                background-color: #ffffff;
+                transition: background-color 0.3s, color 0.3s;
+            }
+
+            .taskBox li a:hover {
+                background-color: #ff6b6b;
+                color: #ffffff;
+            }
+
+        </style>
+    </head>
+    <body>
+
+        <!-- Add Task Form -->
+        <form action="/insertData" method="POST">
+            <table>
+                <tr>
+                    <td>Task:</td>
+                    <td><input type="text" name="task"
+                            placeholder="Enter your task"></td>
+                </tr>
+                <tr>
+                    <td>Type:</td>
+                    <td>
+                        <input type="checkbox" name="type"
+                            value="Pending">Pending
+                        <input type="checkbox" name="type"
+                            value="Progress">Progress
+                        <input type="checkbox" name="type"
+                            value="Completed">Completed
+                    </td>
+                </tr>
+                <tr>
+                    <td>Date:</td>
+                    <td><input type="date" name="date" placeholder="yyyy-mm-dd"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input type="submit" value="Add Task"></td>
+                </tr>
+            </table>
+        </form>
+
+        <!-- View Data -->
+
+        <div class="allTask">
+            <div class="taskBox">
+                <ul>
+                    <h3>TO DO</h3>
+                    <% dailyTask.map((item,i)=>{
+                    if(item.type==='Pending') { %>
+                    <li>
+                        <p style="background-color: rgb(212, 220, 123); padding: 5px; text-align: center;"><%= item.type %></p>
+                        <p style="margin: 3px; color: #4a4a4a;">Task : <%= item.task %></p>
+                        <span style="background-color: #7a7a7a; color: whitesmoke; padding: 5px;">Date : <%= item.date %></span>
+                        <a style="margin: 5px;" href="/deleteTask/?pos=<%= i %>">DELETE</a>
+                    </li>
+                    <% }
+                    })%>
+                </ul>
+            </div>
+            <div class="taskBox">
+                <ul>
+                    <h3>IN PROGRESS</h3>
+                    <% dailyTask.map((item,i)=>{
+                    if(item.type==='Progress') { %>
+                    <li>
+                        <p style="background-color: rgb(123, 220, 123); padding: 5px; text-align: center;"><%= item.type %></p>
+                        <p style="margin: 3px; color: #4a4a4a;">Task : <%= item.task %></p>
+                        <span style="background-color: #7a7a7a; color: whitesmoke; padding: 5px;">Date : <%= item.date %></span>
+                        <a style="margin: 5px;" href="/deleteTask/?pos=<%= i %>">DELETE</a>
+                    </li>
+                    <% }
+                    })%>
+                </ul>
+            </div>
+            <div class="taskBox">
+                <ul>
+                    <h3>COMPLETED</h3>
+                    <% dailyTask.map((item,i)=>{
+                    if(item.type==='Completed') { %>
+                    <li>
+                        <p style="background-color: rgb(225, 131, 96); padding: 5px; text-align: center;"><%= item.type %></p>
+                        <p style="margin: 3px; color: #4a4a4a;">Task : <%= item.task %></p>
+                        <span style="background-color: #7a7a7a; color: whitesmoke; padding: 5px;">Date : <%= item.date %></span>
+                        <a style="margin: 5px;" href="/deleteTask/?pos=<%= i %>">DELETE</a>
+                    </li>
+                    <% }
+                    })%>
+                </ul>
+            </div>
+        </div>
+
+    </body>
+</html>

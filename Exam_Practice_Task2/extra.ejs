@@ -1,0 +1,74 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+
+        <h1 style="text-align: center;">Tasks</h1>
+
+        <!-- add task code  -->
+
+        <form action="/insertData" method="POST">
+            <table>
+                <tr>
+                    <td>Task:</td>
+                    <td><input type="text" name="task"
+                            placeholder="Enter your task"></td>
+                </tr>
+                <tr>
+                    <td>Type:</td>
+                    <td>
+                        <input type="checkbox" name="type"
+                            value="Pending">Pending
+                        <input type="checkbox" name="type"
+                            value="Progress">Progress
+                        <input type="checkbox" name="type"
+                            value="Completed">Completed
+                    </td>
+                </tr>
+                <tr>
+                    <td>Date:</td>
+                    <td><input type="date" name="date"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input type="submit" value="Add Task"></td>
+                </tr>
+            </table>
+        </form>
+
+        <!-- VIEW DATA  -->
+
+        <h2 style="text-align: center;">Daily Tasks</h2>
+
+        
+
+        <table border="1" style="width: 100%; margin-top: 20px;">
+            <tr>
+                <th>Task</th>
+                <th>Type</th>
+                <th>Date</th>
+                <th>Action</th>
+            </tr>
+            <% dailyTask.map((v,i)=>{ %>
+            <tr>
+                <td><%= v.task %></td>
+                <td><%= v.type %></td>
+                <td><%= v.date %></td>
+                <td>
+                    <a href="/editTask?id=<%= v._id %>">Edit</a> ||
+                    <a href="/deleteTask?id=<%= v._id %>">Delete</a>
+                </td>
+            </tr>
+            <% }) %>
+
+        </table>
+
+    </body>
+</html>

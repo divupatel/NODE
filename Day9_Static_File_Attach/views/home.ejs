@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link href="/css/style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<header>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/contact">Contact</a></li>
+        </ul>
+    </nav>
+    
+    
+ </header>
+ <h1>Welcome to my website!</h1>
+    <p>This is a simple website created using Node.js, Express, and EJS.</p>
+    <p>Feel free to explore and enjoy!</p>
+    <hr>
+    <p>Last updated: <span id="lastUpdated"></span></p>
+
+    <h1>This is my Home Page</h1>
+    <!-- <img src="/images/images.jpeg" width="500px" height="400px" alt=""> -->
+
+    <script src="/js/script.js" type="text/javascript"></script>
+    <script>
+        const lastUpdated = document.getElementById('lastUpdated');
+        lastUpdated.innerText = new Date().toLocaleString();
+    </script>
+</body>
+</html>
