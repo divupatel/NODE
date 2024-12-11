@@ -1,0 +1,116 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* General body styling */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    background-color: #ff7070;
+}
+
+/* Header navigation styles */
+header {
+    background: #fff;
+    color: #333;
+    padding: 10px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
+
+header nav ul li {
+    margin: 0 15px;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: #ff7070;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 5px 10px;
+    border: 2px solid transparent;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+header nav ul li a:hover {
+    background-color: #ff7070;
+    color: #fff;
+    border-color: #ff7070;
+}
+
+/* Main heading */
+h1 {
+    text-align: center;
+    color: #fff;
+    margin: 20px 0;
+}
+
+/* Employee details container */
+div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Individual employee card */
+div > div {
+    width: 300px;
+    padding: 15px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: left;
+    transition: transform 0.3s ease;
+}
+
+div > div:hover {
+    transform: translateY(-5px);
+}
+
+div p {
+    margin: 8px 0;
+    color: #555;
+}
+
+/* Action links */
+div a {
+    display: inline-block;
+    margin-right: 10px;
+    text-decoration: none;
+    color: #fff;
+    background: #ff7070;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: background 0.3s ease;
+}
+
+div a:hover {
+    background: #e55b5b;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    div {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    div > div {
+        width: 90%;
+    }
+}
