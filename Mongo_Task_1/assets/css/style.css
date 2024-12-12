@@ -1,0 +1,120 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #ccc8eb; /* Updated background color */   
+}
+header{
+    background-color: #a29cc8;
+}
+
+/* aside{
+    width: 400px;
+    overflow-y: scroll;
+}
+main{
+    width: calc(100% - 400px);
+    margin-left: 400px;
+} */
+
+
+aside{
+    width: 400px;
+    padding: 20px  20px 100px 20px;
+    height: 100vh;
+    overflow: scroll;
+    transform: translate(-100%);
+    transition: all 0.3s linear;
+}
+.show-aside{
+    transform: translate(0%);
+}
+main{
+    width: 100%;
+    transition: all 0.3s linear;
+    margin-left: auto;
+}
+.show-main{
+    width: calc(100% - 400px);
+}  
+
+table {
+    width: 100%;
+    border-collapse: separate;
+    margin: 20px 0;
+
+}
+
+table thead th {
+    background-color: #c4c1e0 !important; /* Updated table header color */
+    /* color: #fff !important; */
+    text-align: left;
+    padding: 10px;
+}
+
+table tbody td {
+    padding: 10px;
+    border: 1px solid #ddd !important;
+    vertical-align: top;
+}
+
+table tbody tr:nth-child(even) {
+    background-color: #f7f7fb !important; /* Slight variation for alternate rows */
+}
+
+table tbody tr:hover {
+    background-color: #e2e2f0 !important; /* Slightly darker hover effect */
+}
+
+.action-link {
+    color: #c4c1e0; /* Text color */
+    text-decoration: none; /* Remove underline */
+    font-weight: bold; /* Make the text bold for emphasis */
+    margin: 0 5px; /* Add spacing around the links */
+    transition: color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.action-link:hover {
+    color: #a29cc8; /* Slightly darker hover effect */
+    text-decoration: underline; /* Add underline on hover */
+}
+
+
+form table {
+    width: 100%;
+}
+
+form table td {
+    padding: 10px;
+}
+
+form input,
+form select,
+form textarea {
+    width: calc(100% - 20px);
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+form input[type="radio"] , form input[type="checkbox"]{
+    width: 20px;
+}
+
+
+form input[type="submit"] {
+    background-color: #c4c1e0; /* Updated button color */
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+form input[type="submit"]:hover {
+    background-color: #a29cc8; /* Slightly darker hover effect */
+}
