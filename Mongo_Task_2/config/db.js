@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://127.0.0.1:27017/Task1');
+mongoose.connect('mongodb://127.0.0.1:27017/Task2');
 
 const db = mongoose.connection;
 
