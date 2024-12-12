@@ -1,0 +1,89 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: Arial, sans-serif;
+}
+
+header {
+    background-color: #9f1861;
+    color: #fff;
+}
+
+header .nav-link {
+    color: #fff;
+}
+
+h1 {
+    color: #9f1861 !important;
+    text-align: center;
+    margin: 20px!important;
+}
+
+.rating-container form {
+    border: 1px solid #db5ca6;
+    width: 50%;
+    margin: auto;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: #fdf1f6;
+}
+
+.rating label {
+    margin-right: 10px;
+    color: #9f1861;
+}
+
+textarea {
+    width: 100%;
+    border: 1px solid #db5ca6;
+    border-radius: 4px;
+    margin-top: 10px;
+    padding: 10px;
+}
+
+button {
+    background-color: #9f1861;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 10px !important;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #db5ca6;
+}
+
+.view_rating{
+    padding: 20px;
+    width: 50%;
+    margin: auto;
+}
+
+.reviews {
+    margin-top: 30px;
+    border: 1px solid #db5ca6;
+    border-radius: 5px;
+    padding: 15px;
+    background-color: #fdf1f6;
+}
+
+
+
+.reviews .rating {
+    color: #9f1861;
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.reviews p {
+    margin: 5px 0;
+    color: #333;
+}
+
+.reviews i {
+    color: #db5ca6;
+}
