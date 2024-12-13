@@ -1,5 +1,9 @@
 const mongoose = require('mongoose');
 
+const multer = require('multer');
+const imagePath = './uploads';
+const path = require('path');
+
 const EmploeeSchema = mongoose.Schema({
     name:{
         type:String,
@@ -30,6 +34,17 @@ const EmploeeSchema = mongoose.Schema({
         required:true
     },
 })
+
+const storageImage = multer.diskStorage({
+    destination:(req,file,cb)=>{
+        cb(null,path.join(__dirname,'..',imagePath));
+    },
+    filename:(req,file,cb)=>{
+        cb(null,file.fieldname+'-'+Date.now());
+    }
+})
+
+EmploeeSchema.statics.uploadImageFile = multer({storage:storageImage}).single('image');
 
 const Employee = mongoose.model('Employee',EmploeeSchema);
 module.exports = Employee; 

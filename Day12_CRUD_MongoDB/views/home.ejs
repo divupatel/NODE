@@ -19,7 +19,7 @@
         </header>
         <h1>Employee Details</h1>
 
-        <form action="/insertData" method="post">
+        <form action="/insertData" method="post" enctype="multipart/form-data">
             <table border="1" align="center">
                 <!-- Name  -->
                 <tr>
@@ -80,6 +80,13 @@
                     <td>About:</td>
                     <td><textarea type="text" name="about"></textarea></td>
                 </tr>
+
+                <!-- IMAGE -->
+               <tr>
+                <td>Upload Image :</td>
+                <td><input type="file" name="image"></td>
+               </tr>
+
 
                 <!-- Submit Button -->
                 <tr>

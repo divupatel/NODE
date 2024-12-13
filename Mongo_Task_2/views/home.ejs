@@ -3,9 +3,9 @@
     <head>
 
         <title>Home Page</title>
-        <link rel="stylesheet" href="/css/style.css" type="text/css" />
         <link rel="stylesheet" href="/css/bootstrap.min.css" type="text/css" />
         <link rel="stylesheet" href="/remix/remixicon.css" type="text/css" />
+        <link rel="stylesheet" href="/css/style.css" type="text/css" />
     </head>
     <body>
         <header class="navbar navbar-expand-lg px-5 py-3  w-100">
@@ -129,9 +129,9 @@
 
                     <tr>
                         <td><%= v.f_name %> <%= v.l_name %></td>
-                        <td><%= v.email %></td>
+                        <td class="text-break text-danger"><%= v.email %></td>
                         <td><%= v.gender %></td>
-                        <td><%= v.hobby %></td>
+                        <td class="text-break"><%= v.hobby %></td>
                         <td><%= v.city %></td>
                         <td><%= v.about %></td>
                         <td>

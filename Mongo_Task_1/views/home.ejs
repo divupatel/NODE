@@ -107,9 +107,9 @@
 
                     <tr>
                         <td><%= v.f_name %> <%= v.l_name %></td>
-                        <td><%= v.email %></td>
+                        <td class="text-break"><%= v.email %></td>
                         <td><%= v.gender %></td>
-                        <td><%= v.hobby %></td>
+                        <td><%= v.hobby.join(', ') %></td>
                         <td><%= v.city %></td>
                         <td><%= v.about %></td>
                         <td>

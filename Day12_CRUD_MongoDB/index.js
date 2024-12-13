@@ -17,10 +17,11 @@ app.get('/',async (req,res)=>{
     res.render('home')
 })
 
-app.post('/insertData',async (req,res)=>{
+app.post('/insertData',Employee.uploadImageFile,async (req,res)=>{
     console.log(req.body);
-    await Employee.create(req.body);
-    return res.redirect('/viewemp');
+    console.log(req.file);
+    // await Employee.create(req.body);
+    // return res.redirect('/viewemp');
 
 })
 
