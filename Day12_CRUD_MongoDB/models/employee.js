@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const multer = require('multer');
-const imagePath = './uploads';
+const imagePath = '/uploads';
 const path = require('path');
 
 const EmploeeSchema = mongoose.Schema({
@@ -13,7 +13,7 @@ const EmploeeSchema = mongoose.Schema({
         type:String,
         required:true
     },
-    password:{
+    password:{ 
         type:String,
         required:true
     },
@@ -33,6 +33,10 @@ const EmploeeSchema = mongoose.Schema({
         type:String,
         required:true
     },
+    image:{
+        type:String,
+        required:true
+    }
 })
 
 const storageImage = multer.diskStorage({
@@ -45,6 +49,7 @@ const storageImage = multer.diskStorage({
 })
 
 EmploeeSchema.statics.uploadImageFile = multer({storage:storageImage}).single('image');
+EmploeeSchema.statics.imgPath = imagePath;
 
 const Employee = mongoose.model('Employee',EmploeeSchema);
 module.exports = Employee; 

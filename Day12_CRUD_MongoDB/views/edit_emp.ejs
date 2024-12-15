@@ -93,6 +93,15 @@
                     <td><textarea type="text" name="about"><%= singleObj.about %></textarea></td>
                 </tr>
 
+                  <!-- IMAGE -->
+                <tr>
+                    <td>Image :-</td>
+                    <td>
+                        <input type="file" name="image"/>
+                        <img src="<%= singleObj.image %>" height="100" width="100"/>
+                    </td>
+                </tr>
+
                 <!-- Submit Button -->
                 <tr>
                     <td></td>
@@ -102,4 +111,4 @@
         </form>
 
     </body>
-</html>
+</html> 
