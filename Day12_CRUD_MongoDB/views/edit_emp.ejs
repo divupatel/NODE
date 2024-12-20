@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="/css/style.css">
     </head>
     <body>
-
+ 
         <header>
             <nav>
                 <ul>
@@ -19,7 +19,7 @@
         </header>
         <h1>Employee Update Details</h1>
 
-        <form action="/editData" method="post">
+        <form action="/editData" method="post" enctype="multipart/form-data">
             <input type="hidden" name="empId" value="<%= singleObj.id %>"/>
             <table border="1" align="center">
                 <!-- Name  -->

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Edit Page</title>
+        <link rel="stylesheet" href="/css/style.css">
+    </head>
+    <body>
+  
+        <header>
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/viewemp">Employee</a></li>
+                    <li><a href="/editemp">Edit_Employee</a></li>
+                </ul>
+            </nav>
+        </header>
+        <h1>Employee Update Details</h1>
+
+        <form action="/editData" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="empId" value="<%= singleObj.id %>"/>
+            <table border="1" align="center">
+                <!-- Name  -->
+                <tr>
+                    <td>Name:</td>
+                    <td><input type="text" name="name"
+                            value="<%= singleObj.name %>" /></td>
+                </tr>
+
+                <!-- Email  -->
+                <tr>
+                    <td>Email:</td>
+                    <td><input type="text" name="email"
+                            value="<%= singleObj.email %>" /></td>
+                </tr>
+
+                <!-- Password -->
+                <tr>
+                    <td>Password:</td>
+                    <td><input type="password" name="password"
+                            value="<%= singleObj.password %>" /></td>
+                </tr>
+
+                <!-- Gender -->
+                <tr>
+                    <td>Gender:</td>
+                    <td>
+                        <input type="radio" name="gender" value="male"
+                            <% if(singleObj.gender == 'male'){ %><%= 'checked'
+                        %><% } %>/>Male
+                        <input type="radio" name="gender" value="female" <%
+                            if(singleObj.gender == 'female'){ %><%= 'checked'
+                        %><% } %>/>Female
+                    </td>
+                </tr>
+
+                <!-- Hobby -->
+                <tr>
+                    <td>Hobby:</td>
+                    <td>
+                        <input type="checkbox" name="hobby"
+                            value="reading"
+                            <% if(singleObj.hobby.includes ('reading')){ %><%=
+                        'checked' %><% } %> />Reading
+                        <input type="checkbox" name="hobby"
+                            value="music" <% if(singleObj.hobby.includes
+                            ('music')){ %><%= 'checked' %><% } %> />Music
+                        <input type="checkbox" name="hobby"
+                            value="travelling" <% if(singleObj.hobby.includes
+                            ('travelling')){ %><%= 'checked' %><% }
+                        %>/>Travelling
+                    </td>
+                </tr>
+                <!-- City -->
+                <% let cityNames = ["Surat","Vadodara","Rajkot","Mumbai"] %>
+                <tr>
+                    <td>City:</td>
+                    <td>
+                        <select name="city">
+                            <option value>-- Select City --</option>
+                            <% cityNames.map((v,i)=>{ %>
+                            <option value="<%= v %>" <% if(singleObj.city == v) { %> <%= 'selected' %> <% } %>><%= v %></option>
+                            <% }) %>
+                        </select>
+                    </td>
+                </tr>
+
+                <!-- About -->
+                <tr>
+                    <td>About:</td>
+                    <td><textarea type="text" name="about"><%= singleObj.about %></textarea></td>
+                </tr>
+
+                  <!-- IMAGE -->
+                <tr>
+                    <td>Image :-</td>
+                    <td>
+                        <input type="file" name="image"/>
+                        <img src="<%= singleObj.image %>" height="100" width="100"/>
+                    </td>
+                </tr>
+
+                <!-- Submit Button -->
+                <tr>
+                    <td></td>
+                    <td><input type="submit" value="Update" /></td>
+                </tr>
+            </table>
+        </form>
+
+    </body>
+</html> 

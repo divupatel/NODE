@@ -12,7 +12,7 @@ app.set('views', path.join(__dirname, 'views'));
 
 app.use(express.urlencoded());
 app.use(express.static(path.join(__dirname, 'assets')));
-app.use("/uploads", express.static(path.join(__dirname, 'uploads')));
+app.use("/uploads", express.static(path.join(__dirname,'uploads')));
 
 
 app.get('/', async (req, res) => {
@@ -23,23 +23,23 @@ app.post('/insertData', Employee.uploadImageFile, async (req, res) => {
     console.log(req.body);
     console.log(req.file);
 
-    var imgPath = '';
-    if (req.file) {
-        imgPath = Employee.imgPath + '/' + req.file.filename;
-        console.log(imgPath)
-    }
-    req.body.image = imgPath;
-    await Employee.create(req.body);
-    return res.redirect('/viewemp');
+    // var imagePath = '';
+    // if (req.file) {
+    //     imagePath = Employee.imgPath+'/'+req.file.filename;
+    //     // console.log(imagePath)
+    // }
+    // req.body.image = imagePath;
+    // await Employee.create(req.body);
+    // return res.redirect('/viewemp');
 
 })
 
 app.get('/viewemp', async (req, res) => {
     let empData = await Employee.find();
-    res.render('view_emp', {
+    return res.render('view_emp', {
         empData
-    })
-})
+    });
+});
 
 app.get('/deleteData', async (req, res) => {
     let id = req.query.empId;
@@ -48,7 +48,7 @@ app.get('/deleteData', async (req, res) => {
 
     console.log(singleData.image);
 
-    const deletePath = path.join(__dirname, singleData.image);
+    const deletePath = path.join(__dirname,singleData.image);
 
     if (deletePath) {
         try {
@@ -73,12 +73,7 @@ app.get('/updateData/:id', async (req, res) => {
     })
 })
 
-app.post('/editData', async (req, res) => {
-    console.log(req.body);
-    console.log(req.body.empId);
-    await Employee.findByIdAndUpdate(req.body.empId, req.body);
-    return res.redirect('/viewemp');
-})
+
 
 app.listen(port, (err) => {
     if (err) {

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Home Page</title>
+        <link rel="stylesheet" href="/css/style.css">
+    </head>
+    <body>
+
+        <header>
+            <nav> 
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/viewemp">Employee</a></li>
+                    <!-- <li><a href="/editemp">Edit_Employee</a></li> -->
+                </ul>
+            </nav>
+        </header>
+        <h1>Employee Details</h1>
+
+        <form action="/insertData" method="post" enctype="multipart/form-data">
+            <table border="1" align="center">
+                <!-- Name  -->
+                <tr>
+                    <td>Name:</td>
+                    <td><input type="text" name="name" /></td>
+                </tr>
+ 
+                <!-- Email  -->
+                <tr>
+                    <td>Email:</td>
+                    <td><input type="text" name="email" /></td>
+                </tr>
+
+                <!-- Password -->
+                <tr>
+                    <td>Password:</td>
+                    <td><input type="password" name="password" /></td>
+                </tr>
+
+                <!-- Gender -->
+                <tr>
+                    <td>Gender:</td>
+                    <td>
+                        <input type="radio" name="gender" value="male" />Male
+                        <input type="radio" name="gender"
+                            value="female" />Female
+                    </td>
+                </tr>
+
+                <!-- Hobby -->
+                <tr>
+                    <td>Hobby:</td>
+                    <td>
+                        <input type="checkbox" name="hobby"
+                            value="reading" />Reading
+                        <input type="checkbox" name="hobby"
+                            value="music" />Music
+                        <input type="checkbox" name="hobby"
+                            value="travelling" />Travelling
+                    </td>
+                </tr>
+                <!-- City -->
+                <% let cityNames = ["Surat","Vadodara","Rajkot","Mumbai"] %>
+                <tr>
+                    <td>City:</td>
+                    <td>
+                        <select name="city">
+                            <option value>-- Select City --</option>
+                            <% cityNames.map((v,i)=>{ %>
+                            <option value="<%= v %>"><%= v %></option>
+                            <% }) %>
+                        </select>
+                    </td>
+                </tr> 
+
+                <!-- About -->
+                <tr>
+                    <td>About:</td>
+                    <td><textarea type="text" name="about"></textarea></td>
+                </tr>
+
+                <!-- IMAGE -->
+               <tr>
+                <td>Upload Image :</td>
+                <td><input type="file" name="image"></td>
+               </tr>
+
+
+                <!-- Submit Button -->
+                <tr>
+                    <td></td>
+                    <td><input type="submit" value="Submit" /></td>
+                </tr>
+            </table>
+        </form>
+
+    </body>
+</html>
