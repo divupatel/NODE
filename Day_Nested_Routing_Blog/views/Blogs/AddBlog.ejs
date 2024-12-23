@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Blog</title>
+</head>
+<body>
+
+    <a href="/Blogs/ViewBlog">View Blog</a>
+
+    <h1 style="text-align: center;color: cadetblue;">Add Blog</h1>
+    <form action="/blogs/insertBlog" method="post" enctype="multipart/form-data">
+        <table border="1" align="center">
+            <tr>
+                <% categoryArray = ['News','Crime','Politics','Sports'] %>
+                <td>Category :</td>
+                <td>
+                    <select name="category">
+                        <option value="">-- select category</option>
+                        <% categoryArray.map((v)=>{ %>
+                        <option value="<%= v %>"><%= v %></option>
+                        <% }) %>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Title :</td>
+                <td><input type="text" name="title" /></td>
+            </tr>
+            <tr>
+                <td>Description :</td>
+                <td><textarea name="about" ></textarea></td>
+            </tr>
+            <tr>
+                <td>Image :</td>
+                <td><input type="file" name="image" /></td>
+            </tr>
+            <tr>
+                <td>Author :</td>
+                <td><input type="text" name="author" /></td>
+            </tr>
+            <tr>
+                <td>Date :</td>
+                <td><input type="date" name="blogDate" /></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="submit" name="submit" value="Add Blog" /></td>
+            </tr>
+        </table>
+    </form>
+    
+</body>
+</html>
