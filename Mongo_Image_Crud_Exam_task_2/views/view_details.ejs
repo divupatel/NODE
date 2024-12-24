@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Book Details</title>
+        <link rel="stylesheet" href="/css/style.css" type="text/css">
+        <link rel="stylesheet" href="/css/bootstrap.min.css" type="text/css">
+        <link rel="stylesheet" href="/remix/remixicon.css" type="text/css">
+
+    </head>
+    <body>
+        <header>
+            <ul class="d-flex justify-content-around align-items-center ">
+                <li class="nav-item"><a href="/" class="nav-link">Home</a></li>
+            </ul>
+        </header>
+
+        <h1 style=" color: #877678 ;text-align: center ;margin: 20px ;">Book
+            Details</h1>
+        <div class="details d-flex justify-content-center align-items-center">
+            <img src="<%= singleData.image %>" class="col-lg-6"
+                alt="Book Cover">
+            <div
+                class="data_details col-lg-6 d-flex justify-content-center flex-column ">
+                <div class="ms-2">
+                    <h3>Book Title: <%= singleData.title %></h3>
+                    <h4>Author: <%= singleData.author %></h4>
+                    <h5>Publisher: <%= singleData.publisher %></h5>
+                    <p class="text-break"> <strong>Description:</strong> <%=
+                        singleData.about %></p>
+                    <p><strong>Genre:</strong> <%= singleData.genre %></p>
+                    <p>
+                        <strong>Price:</strong> 
+                        <span style="text-decoration: line-through; color: red;">$<%= singleData.price %></span>
+                        <span style="color: #877678;">$<%= (singleData.price * 0.9).toFixed(0) %> (10% Off)</span>
+                    </p>
+                    <p><strong>Stock:</strong> <%= singleData.stock %>
+                        available</p>
+                    <p><strong>Published Date:</strong> <%= singleData.date
+                        %></p>
+                        <p><strong>Rating:</strong> 
+                            <span>
+                                <% for (let i = 1; i <= 5; i++) { %>
+                                    <i class="ri-star-<%= i <= singleData.rating ? 'fill' : 'line' %>" 
+                                       style="color: <%= i <= singleData.rating ? '#705B57' : '#877678' %>;">
+                                    </i>
+                                <% } %>
+                            </span>
+                            <%= singleData.rating %> / 5
+                        </p>
+                        
+                    <div class="mt-4">
+                        <a class="button me-3" href>Add To Cart</a>
+                        <a class="button me-3" href="/">Cancel</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="/js/bootstrap.bundle.min.js"
+            type="text/javascript"></script>
+    </body>
+</html>

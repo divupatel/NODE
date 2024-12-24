@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Book Details</title>
+        <link rel="stylesheet" href="/css/style.css" type="text/css">
+        <link rel="stylesheet" href="/css/bootstrap.min.css" type="text/css">
+        <link rel="stylesheet" href="/remix/remixicon.css" type="text/css">
+
+    </head>
+    <body>
+        <h1
+            style=" color: #877678 ;text-align: center ;margin-bottom: 20px ;">Book
+            Details</h1>
+        <div class="details d-flex justify-content-center align-items-center">
+            <div class>
+                <img src="<%= singleData.image %>" alt="Book Cover">
+            </div>
+            <div
+                class="data_details d-flex justify-content-center flex-column ">
+                <div class="ms-2">
+                    <h3>Book Title: <%= singleData.title %></h3>
+                    <h4>Author: <%= singleData.author %></h4>
+                    <h5>Publisher: <%= singleData.publisher %></h5>
+                    <p><strong>Description:</strong> <%= singleData.about %></p>
+                    <p><strong>Genre:</strong> <%= singleData.genre %></p>
+                    <p><strong>Price:</strong> $<%= singleData.price %></p>
+                    <p><strong>Stock:</strong> <%= singleData.stock %>
+                        available</p>
+                    <p><strong>Published Date:</strong> <%= singleData.date
+                        %></p>
+                    <p><strong>Rating:</strong> <%= singleData.rating %> / 5</p>
+                </div>
+            </div>
+        </div>
+        <script src="/js/bootstrap.bundle.min.js"
+            type="text/javascript"></script>
+    </body>
+</html>

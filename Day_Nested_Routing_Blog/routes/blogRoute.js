@@ -8,5 +8,9 @@ const BlogCtl = require('../controllers/blogController');
 routes.get('/',BlogCtl.addBlog);
 routes.post('/insertBlog',Blogs.uploadBlogImage,BlogCtl.insertBlog);
 routes.get('/viewblog',BlogCtl.viewblog);
+routes.get('/deleteBlog/:id',BlogCtl.deleteBlog);
+routes.get('/updateBlog',BlogCtl.updateBlog);
+
+routes.post('/editBlog',Blogs.uploadBlogImage,BlogCtl.editBlog);
 
 module.exports = routes;

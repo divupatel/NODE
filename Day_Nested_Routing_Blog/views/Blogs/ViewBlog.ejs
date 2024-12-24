@@ -12,15 +12,19 @@
     <h1>View Blogs</h1>
 
     <% ViewBlog.map((v, i) => { %>
-        <div class="blog-container">
+        <div class="blog-container" >
             <div>
                 <img src="<%= v.image %>" alt="<%= v.title %>">
             </div>
-            <h3><%= v.title %></h3>
+            <div>
+                <h3><%= v.title %></h3>
             <h4>Author: <%= v.author %></h4>
             <p><%= v.about %></p>
             <p class="category">Category: <%= v.category %></p>
             <p class="date">Date: <%= v.blogDate %></p>
+            <a href="/blogs/deleteBlog/<%= v.id %>">Delete</a>
+            <a href="/blogs/updateBlog/?blogId=<%= v.id %>">Update</a>
+            </div>
         </div>
     <% }) %>
 

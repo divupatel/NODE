@@ -1,0 +1,224 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color: #f3eae8; 
+    color: #877678; 
+}
+
+li{
+    list-style: none;
+}
+a{
+    text-decoration: none !important;
+}
+
+/* Header styles */
+header {
+    background-color: #877678;
+    color: #f3eae8;
+    padding: 10px 0;
+}
+
+header ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+header .nav-item .nav-link {
+    color: #f3eae8;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+header .nav-item .nav-link:hover {
+    color: #f3eae8; 
+    text-decoration: underline;
+}
+
+/* aside  */
+
+aside{
+    width: 400px;
+    padding: 20px  20px 100px 20px;
+    height: 100vh;
+    overflow: scroll;
+    transform: translate(-100%);
+    transition: all 0.3s linear;
+}
+.show-aside{
+    transform: translate(0%);
+}
+main{
+    width: 100%;
+    transition: all 0.3s linear;
+    margin-left: auto;
+}
+.show-main{
+    width: calc(100% - 400px);
+}  
+
+/* Form styling */
+form {
+    background-color: #f3eae8;
+    border: 1px solid #877678;
+    padding: 10px;
+    border-radius: 8px;
+    width: 350px;
+    margin: auto;
+}
+
+form table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+form table td {
+    padding: 10px;
+    color: #877678;
+}
+
+form input[type="text"],form input[type="number"],
+form textarea{
+    width: 75%;
+    padding: 8px;
+    border: 1px solid #877678;
+    border-radius: 4px;
+    background-color: #ffffff;
+    color: #877678;
+}
+form input[type="checkbox"]{
+    width: 20%;
+}
+form input[type="submit"] {
+    background-color: #877678;
+    color: #f3eae8;
+    border: none;
+    cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 4px;
+}
+
+form input[type="submit"]:hover {
+    background-color: #705b57;
+}
+
+/* Card styling */
+.card {
+    border: 1px solid #877678;
+    border-radius: 8px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: scale(1.02);
+}
+
+.card-title {
+    color: #877678 !important;
+    font-size: 20px !important;
+    font-weight: bold !important;
+}
+
+.card-text {
+    color: #877678;
+}
+
+.card-footer .btn {
+    background-color: #877678;
+    color: #f3eae8;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.card-footer .btn:hover {
+    background-color: #705b57;
+}
+
+
+/* view details  */
+
+
+.details {
+    width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border: 1px solid #877678;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.details img {
+    display: block;
+    height: 500px;
+    border: 1px solid #877678;
+    border-radius: 10px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.data_details{
+    height: 500px;
+    border: 1px solid #877678;
+    border-radius: 10px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+}
+
+.details h5, .details h3, .details h4 {
+    color: #705b57;
+    margin-bottom: 10px ;
+}
+
+.details p {
+    margin-bottom: 10px ;
+    color: #877678;
+    font-size: 16px;
+}
+
+.details p strong {
+    color: #705b57;
+}
+
+/* Submit Button */
+.details input[type="submit"] {
+    background-color: #877678;
+    color: #f3eae8;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.details input[type="submit"]:hover {
+    background-color: #705b57;
+}
+
+.data_details .button{
+    background-color: #705B57;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 10px;
+    border: 2px solid transparent !important;
+    transition:all linear 0.3s;
+}
+.data_details .button:hover{
+    background-color: white;
+    color: #705B57;
+    border: 2px solid #705B57 !important;;
+}
+

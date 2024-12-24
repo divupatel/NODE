@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Home Page</title>
+        <link rel="stylesheet" href="/css/style.css" type="text/css">
+        <link rel="stylesheet" href="/css/bootstrap.min.css" type="text/css">
+        <link rel="stylesheet" href="/remix/remixicon.css" type="text/css">
+    </head>
+    <body>
+        <header>
+            <ul class="d-flex justify-content-around align-items-center ">
+                <li class="nav-item"><a href class="nav-link">Home</a></li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link" id="sidebar">Add New Book</a>
+                </li>
+            </ul>
+        </header>
+        <!-- ADD DATA  -->
+        <aside id="aside" class="position-fixed  start-0">
+            <form action="/inserData" method="post"
+                enctype="multipart/form-data">
+                <table>
+                    <tr>
+                        <td>Title :</td>
+                        <td><input type="text" name="title" /></td>
+                    </tr>
+                    <tr>
+                        <td>Author :</td>
+                        <td><input type="text" name="author" /></td>
+                    </tr>
+                    <tr>
+                        <td>Description :</td>
+                        <td><textarea name="about"></textarea></td>
+                    </tr>
+                    <tr>
+                        <td>Genre :</td>
+                        <td>
+                            <input type="checkbox" name="genre"
+                                value="Fiction">
+                            Fiction <br>
+                            <input type="checkbox" name="genre"
+                                value="Non-Fiction">
+                            Non-Fiction <br>
+                            <input type="checkbox" name="genre"
+                                value="Fantasy">
+                            Fantasy <br>
+                            <input type="checkbox" name="genre"
+                                value="Sci-Fi">
+                            Sci-Fi <br>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Price :</td>
+                        <td><input type="number" name="price" /></td>
+                    </tr>
+                    <tr>
+                        <td>Stock :</td>
+                        <td><input type="number" name="stock" /></td>
+                    </tr>
+                    <tr>
+                        <td>Published Date :</td>
+                        <td><input type="date" name="date" /></td>
+                    </tr>
+                    <tr>
+                        <td>Publisher :</td>
+                        <td><input type="text" name="publisher" /></td>
+                    </tr>
+                    <tr>
+                        <td>Cover-Image :</td>
+                        <td><input type="file" name="image" /></td>
+                    </tr>
+                    <tr>
+                        <td>Rating :</td>
+                        <td>
+                            <input type="radio" name="rating" value="1">
+                            1
+                            <input type="radio" name="rating" value="2">
+                            2
+                            <input type="radio" name="rating" value="3">
+                            3
+                            <input type="radio" name="rating" value="4">
+                            4
+                            <input type="radio" name="rating" value="5">
+                            5
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><input type="submit" value="Submit"></td>
+                    </tr>
+
+                </table>
+            </form>
+        </aside>
+
+        <!-- VIEW DATA  -->
+        <main id="main">
+            <div class="container">
+                <div class="row">
+                    <% bookData.map((book, index) => { %>
+                    <div class="col-lg-4 mt-3">
+                        <div class="card h-100">
+                            <div class="bg-body-secondary">
+                                <img src="<%= book.image %>" class="d-flex m-auto my-3" width="200px" height="300px" alt="<%= book.title %> cover">
+                            </div> <div class="card-body">
+                                <h5 class="card-title"><%= book.title %></h5>
+                                <p class="card-text">Author: <%= book.author
+                                    %></p>
+                                <p class="card-text">Publisher: <%=
+                                    book.publisher
+                                    %></p>
+                            </div>
+                            <div
+                                class="card-footer">
+                                <a href="/details/?id=<%= book.id %>"
+                                    class="btn w-100 mb-2 ">More Details</a>
+                                <br>
+                                <a href="/buy/<%= book.id %>"
+                                    class="btn w-100 ">Add to Cart</a>
+                            </div>
+                        </div>
+                    </div>
+                    <% }) %>
+                </div>
+            </div>
+        </main>
+
+        <script src="/js/script.js" type="text/javascript"></script>
+        <script src="/js/bootstrap.bundle.min.js"
+            type="text/javascript"></script>
+    </body>
+</html>
