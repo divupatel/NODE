@@ -4,22 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Blog</title>
+
 </head>
 <body>
 
-    <a href="/Blogs/ViewBlog">View Blog</a>
+    <%- include('../layouts/header.ejs') %>
+
 
     <h1 style="text-align: center;color: cadetblue;">Add Blog</h1>
     <form action="/blogs/insertBlog" method="post" enctype="multipart/form-data">
         <table border="1" align="center">
             <tr>
-                <% categoryArray = ['News','Crime','Politics','Sports'] %>
                 <td>Category :</td>
                 <td>
-                    <select name="category">
+                    <select name="categoryId">
                         <option value="">-- select category</option>
-                        <% categoryArray.map((v)=>{ %>
-                        <option value="<%= v %>"><%= v %></option>
+                        <% categoryData.map((v)=>{ %>
+                        <option value="<%= v.id %>"><%= v.categoryName %></option>
                         <% }) %>
                     </select>
                 </td>

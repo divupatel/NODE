@@ -12,6 +12,10 @@ h1 {
     margin-top: 20px;
 }
 
+li{
+    list-style: none;
+}
+
 .blog-container {
     max-width: 800px;
     margin: 20px auto;
@@ -58,4 +62,24 @@ h1 {
 .blog-container p.date {
     font-size: 0.9em;
     color: #7F8C8D;
+}
+
+.pagination > a > button {
+    padding: 10px 20px;
+    margin: 5px;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+    color: #333;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.pagination > a > button:hover:not([disabled]) {
+    background-color: #ddd;
+}
+
+.pagination > a > button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
 }

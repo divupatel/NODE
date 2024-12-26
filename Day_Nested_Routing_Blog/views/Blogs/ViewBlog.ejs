@@ -1,32 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>View Blogs</title>
-    <link rel="stylesheet" href="/css/style.css" type="text/css">
-</head>
-<body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>View Blogs</title>
+        <link rel="stylesheet" href="/css/style.css" type="text/css">
+    </head>
+    <body>
 
-    <a href="/blogs">Add Blog</a> 
-    <h1>View Blogs</h1>
+        <%- include('../layouts/header.ejs') %>
 
-    <% ViewBlog.map((v, i) => { %>
-        <div class="blog-container" >
+        <h1>View Blogs</h1>
+
+        <form>
+            <input type="text" placeholder="Search here" value="<%= search %>"
+                name="blogSearch" />
+            <input type="submit" value="submit" />
+        </form>
+        <a href="/blogs/viewblog"><button>Reset</button></a>
+        <% BlogData.map((v, i) => { %>
+        <div class="blog-container">
             <div>
                 <img src="<%= v.image %>" alt="<%= v.title %>">
             </div>
             <div>
-                <h3><%= v.title %></h3>
-            <h4>Author: <%= v.author %></h4>
-            <p><%= v.about %></p>
-            <p class="category">Category: <%= v.category %></p>
-            <p class="date">Date: <%= v.blogDate %></p>
-            <a href="/blogs/deleteBlog/<%= v.id %>">Delete</a>
-            <a href="/blogs/updateBlog/?blogId=<%= v.id %>">Update</a>
+                <h3>Title: <%= v.title %></h3>
+                <h4>Author: <%= v.author %></h4>
+                <p><%= v.about %></p>
+                <p class="category">Category: <%= v.categoryId.categoryName
+                    %></p>
+                <p class="date">Date: <%= v.blogDate %></p>
+                <a href="/blogs/deleteBlog/<%= v.id %>">Delete</a>
+                <a href="/blogs/updateBlog/?blogId=<%= v.id %>">Update</a>
             </div>
         </div>
-    <% }) %>
+        <% }) %>
 
-</body>
+        <div class="pagination">
+            <a href="/blogs/viewblog?page=<%= parseInt(page)-1 %>">
+                <button <%= page < 1 ? 'disabled' : '' %> > Prev </button>
+            </a>
+
+            <a href="/blogs/viewblog?page=<%= parseInt(page) %>">
+                <button><%= parseInt(page)+1 %></button>
+            </a>
+
+            <a href="/blogs/viewblog?page=<%= parseInt(page) + 1 %>">
+                <button <%= totalCounts <= parseInt(page) + 1 ? 'disabled' : '' %>>Next</button>
+            </a>
+            
+
+        </div>
+
+    </body>
 </html>

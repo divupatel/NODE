@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Blogs</title>
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+<body>
+
+    <%- include('../layouts/header.ejs') %>
+
+    <h1>View Blogs</h1>
+
+    <% categoryData.map((v, i) => { %>
+        <div class="blog-container" >
+            <p class="category">Category: <%= v.categoryName %></p>
+            <p class="date">Date: <%= v.categoryDate %></p>
+            
+            </div>
+        </div>
+    <% }) %>
+
+</body>
+</html>

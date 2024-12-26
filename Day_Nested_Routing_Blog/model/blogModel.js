@@ -4,8 +4,9 @@ const imagePath = '/uploads/blogImages';
 const multer = require('multer');
 
 const BlogSchema = mongoose.Schema({
-    category : {
-        type : String,
+    categoryId : {
+        type : mongoose.Schema.Types.ObjectId,
+        ref : "Category",
         required : true
     },
     title : {

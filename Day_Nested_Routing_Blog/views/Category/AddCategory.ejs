@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Blog</title>
+
+</head>
+<body>
+
+    <%- include('../layouts/header.ejs') %>
+
+
+    <h1 style="text-align: center;color: cadetblue;">Add Blog</h1>
+    <form action="/category/insertCategory" method="post" >
+        <table border="1" align="center">
+
+            <tr>
+                <td>Category Name :</td>
+                <td><input type="text" name="categoryName" /></td>
+            </tr>
+            
+            <tr>
+                <td>Date :</td>
+                <td><input type="date" name="categoryDate" /></td>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td><input type="submit" name="submit" value="Add Category" /></td>
+            </tr>
+
+        </table>
+    </form>
+    
+</body>
+</html>

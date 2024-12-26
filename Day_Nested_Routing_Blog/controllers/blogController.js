@@ -1,11 +1,28 @@
-const Blogs = require('../model/blogModel')
+const Blogs = require('../model/blogModel');
+const Category = require('../model/categoryModel');
 const path = require('path');
 const fs = require('fs');
 const Blog = require('../model/blogModel');
 
 
-module.exports.addBlog = (req, res) => {
-    return res.render('blogs/AddBlog');
+module.exports.addBlog = async (req, res) => {
+    try {
+        let categoryData = await Category.find();
+        if (categoryData) {
+            return res.render('blogs/AddBlog', {
+                categoryData
+            });
+        }
+        else {
+            console.log("category data not found")
+            return res.redirect('back');
+        }
+
+    }
+    catch (err) {
+        console.log("Err in Blog ");
+        return res.redirect('back');
+    }
 }
 
 module.exports.insertBlog = async (req, res) => {
@@ -28,22 +45,55 @@ module.exports.insertBlog = async (req, res) => {
 }
 
 module.exports.viewblog = async (req, res) => {
-   try{
-    let ViewBlog = await Blog.find();
-    if(ViewBlog){
-        return res.render('Blogs/ViewBlog', {
-            ViewBlog
-        });
+    try {
+
+        var search = '';
+        if (req.query.blogSearch) {
+            search = req.query.blogSearch
+        }
+
+        let perPage = 2;
+        let page = 0;
+
+        if(req.query.page){
+            page = req.query.page
+        }
+
+        let BlogData = await Blog.find({
+            $or: [
+                { author: { $regex: search } },
+                { title: { $regex: search } }
+            ]
+        }).skip(page*perPage).limit(perPage).populate('categoryId').exec();
+
+        let totalRecord = await Blog.find({
+            $or: [
+                { author: { $regex: search } },
+                { title: { $regex: search } }
+            ]
+        }).countDocuments();
+
+        // console.log(totalRecord)
+        let totalCounts = Math.ceil((totalRecord/perPage));
+        console.log(totalCounts)
+
+        if (BlogData) {
+            return res.render('Blogs/ViewBlog', {
+                BlogData,
+                search,
+                totalCounts,
+                page
+            });
+        }
+        else {
+            console.log("Data not found");
+            return res.redirect('back');
+        }
     }
-    else{
-        console.log("Data not found");
+    catch (err) {
+        console.log("Error occuring in view Data", err);
         return res.redirect('back');
     }
-   }
-   catch(err){
-        console.log("Error occuring in view Data");
-        return res.redirect('back');
-   }
 }
 
 module.exports.deleteBlog = async (req, res) => {
@@ -86,9 +136,10 @@ module.exports.updateBlog = async (req, res) => {
     try {
         let id = req.query.blogId;
         let singleBlog = await Blog.findById(id);
+        let categoryData = await Category.find();
         if (singleBlog) {
             return res.render('Blogs/EditBlog', {
-                singleBlog
+                singleBlog, categoryData
             })
         }
         else {
