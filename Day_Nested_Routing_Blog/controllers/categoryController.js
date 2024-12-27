@@ -32,10 +32,35 @@ module.exports.insertCategory = async (req, res) => {
 
 module.exports.viewcategory = async (req, res) => {
     try {
-        let categoryData = await Category.find();
+
+        let search = '';
+        if (req.query.categorySearch) {
+            search = req.query.categorySearch
+        }
+
+        let perPage = 3;
+        let page = 0;
+
+        if (req.query.page) {
+            page = req.query.page
+        }
+
+        let categoryData = await Category.find(
+            { categoryName: { $regex: search } }
+        ).skip(page * perPage).limit(perPage);
+
+        let totalRecords = await Category.find(
+            { categoryName: { $regex: search } }
+        ).countDocuments();
+
+        let totalCounts = Math.ceil((totalRecords / perPage));
+
+
+
         if (categoryData) {
             return res.render('Category/ViewCategory', {
-                categoryData
+                categoryData, search,
+                totalCounts, page
             })
         }
         else {

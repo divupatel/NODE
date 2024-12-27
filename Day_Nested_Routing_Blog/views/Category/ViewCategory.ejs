@@ -12,6 +12,13 @@
 
     <h1>View Blogs</h1>
 
+    <form>
+        <input type="text" placeholder="Search category here" 
+            name="categorySearch" value="<%=search%>"/>
+        <input type="submit" value="submit" />
+    </form>
+    <a href="/category/viewcategory"><button>Reset</button></a>
+
     <% categoryData.map((v, i) => { %>
         <div class="blog-container" >
             <p class="category">Category: <%= v.categoryName %></p>
@@ -20,6 +27,27 @@
             </div>
         </div>
     <% }) %>
+
+    <div>
+        <% for(let i = 0; i<totalCounts; i++){ %>
+        <a href="?page=<%=i%>&categorySearch=<%=search%>"><button><%= i+1 %></button></a>
+        <% } %>
+    </div>
+
+    <div class="pagination">
+        <a href="/category/viewcategory?page=<%= parseInt(page)-1 %>&categorySearch=<%=search%>">
+            <button <%=page < 1 ? 'disabled' : '' %> > Prev </button>
+        </a>
+
+        <a href="/category/viewcategory?page=<%= parseInt(page) %>&categorySearch=<%=search%>">
+            <button><%= parseInt(page)+1 %></button>
+        </a>
+
+        <a href="/category/viewcategory?page=<%= parseInt(page) + 1 %>&categorySearch=<%=search%>">
+            <button <%=totalCounts <=parseInt(page) + 1 ? 'disabled' :
+                '' %>>Next</button>
+        </a>
+    </div>
 
 </body>
 </html>

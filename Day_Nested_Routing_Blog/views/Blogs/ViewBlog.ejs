@@ -36,20 +36,27 @@
         </div>
         <% }) %>
 
+        <div>
+            <% for (let i = 0; i < totalCounts; i++) { %>
+                <a href="/blogs/viewblog?page=<%= i %>&blogSearch=<%=search%>">
+                    <button><%= i+1 %></button>
+                </a>
+            <% } %>
+        </div>
+
         <div class="pagination">
-            <a href="/blogs/viewblog?page=<%= parseInt(page)-1 %>">
-                <button <%= page < 1 ? 'disabled' : '' %> > Prev </button>
+            <a href="/blogs/viewblog?page=<%= parseInt(page)-1 %>&blogSearch=<%=search%>">
+                <button <%=page < 1 ? 'disabled' : '' %> > Prev </button>
             </a>
 
-            <a href="/blogs/viewblog?page=<%= parseInt(page) %>">
+            <a href="/blogs/viewblog?page=<%= parseInt(page) %>&blogSearch=<%=search%>">
                 <button><%= parseInt(page)+1 %></button>
             </a>
 
-            <a href="/blogs/viewblog?page=<%= parseInt(page) + 1 %>">
-                <button <%= totalCounts <= parseInt(page) + 1 ? 'disabled' : '' %>>Next</button>
+            <a href="/blogs/viewblog?page=<%= parseInt(page) + 1 %>&blogSearch=<%=search%>">
+                <button <%=totalCounts <=parseInt(page) + 1 ? 'disabled' :
+                    '' %>>Next</button>
             </a>
-            
-
         </div>
 
     </body>

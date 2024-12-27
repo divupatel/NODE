@@ -59,6 +59,9 @@ module.exports.viewblog = async (req, res) => {
             page = req.query.page
         }
 
+        // single search
+        // let BlogData = await Blog.find({ author: { $regex: search } }).skip(page*perPage).limit(perPage).populate('categoryId').exec();
+
         let BlogData = await Blog.find({
             $or: [
                 { author: { $regex: search } },

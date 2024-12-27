@@ -11,4 +11,4 @@ routes.get('/viewcategory',CategoryCtl.viewcategory);
 
 // routes.get('/deleteCategory/:id',CategoryCtl.deletecategory);
 
-module.exports = routes;
+module.exports = routes; 
