@@ -47,6 +47,7 @@ app.post('/updateData', async (req,res) => {
   await User.findByIdAndUpdate(req.body.userID,req.body);
   return res.redirect('/');
 });
+
 app.listen(port,(err)=>{
     if(err){
         console.log('Error starting server:',err);
